@@ -1,9 +1,25 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[关于线程的一些总结]]></title>
+    <url>%2F2019%2F07%2F23%2F%E7%BA%BF%E7%A8%8B%2F</url>
+    <content type="text"><![CDATA[进程概述 进程就是在某种程度上相互隔离的、独立运行的程序，可以看成是正在运行的一大段代码 进程是线程的容器 线程概述 线程有时称为轻量级进程 是程序执行顺序流的最小单元 进程看成是一大段代码，那么一个线程可以看成是一小段代码 一个进程中可以有多个线程组成，最少有1个 多线程 在单个程序中同时运行多个线程以完成不同的工作 线程与进程的区别： 地址空间和其他资源（如打开文件）：进程间相互独立，同一进程的各线程间共享；某进程内的线程在其他进程不可见。 通信：线程间可以通过直接读写进程数据段（如全局变量）来进行通信——需要进程同步和互斥手段的辅助，以保证数据的一致性 调度和切换：线程上下文切换比进程上下文切换快得多 在多线程OS中，进程不是一个可执行的实体。 创建线程 方式一：创建启动线程（继承Thread类） 类继承了线程类Thread，并且覆盖它的run()方法。 主函数中调用start()方法开启线程。调用start()方法将会启动这个线程，并在获得CPU时间的时候调用run()方法，执行run()的方法体。 注意：如果直接通过该线程对象调用run()方法，线程并没有开启，调用过程仍是由主线程完成的。 方式二：实现Runnable接口方式创建线程 自定义类实现Runnable接口，并且在类中实现Runnable接口中的run()方法。 在main()方法中创建一个rt对象，并将这个对象当作Thread构造器的参数创建一个Thread对象，最后调用Thread对象的start()方法。 多线程并发 使用synchronized关键字 使用到synchronized 直接修饰一个方法就可以了； 位置，在方法的返回值类型前面； 同步方法不需要写同步监听对象，实例方法（非static修饰）默认同步监听对象是this; 同步方法不需要写同步监听对象，静态方法（有static修饰）默认同步监听对象是当前类所在的字节码对象 Xxx.class synchronize(**.class){…} 12345synchronize（同步监听对象）&#123;​ 需要被同步的代码（有线程安全问题的代码）&#125; 锁机制 1、ReentrantLock类是可重入、互斥、实现了Lock接口的锁 2、ReentrantLock() lock(); //获得锁 unlock(); //释放锁 这两种方法的代码： 12345678910111213141516171819202122232425262728293031public class TicketThread implements Runnable&#123; private int num = 50; private String name; public static final Lock lock = new ReentrantLock(); public TicketThread(String name)&#123; this.name = name; &#125; @Override public void run() &#123; while (num&gt;0)&#123; lock.lock(); try&#123; if(num&gt;0)&#123; System.out.println(Thread.currentThread().getName()+"当前票号是："+num); num--; &#125; &#125;finally &#123; lock.unlock(); &#125; &#125; &#125; /* synchronized private void saleOne() &#123; if(num&gt;0)&#123; System.out.println(getName()+"当前票号是："+num); num--; &#125; &#125;*/&#125; 定时器sleep()123456789101112public class TestSleep1 extends Thread &#123; @Override public void run() &#123; try &#123; System.out.println(this.currentThread().getName()+"开始"); Thread.sleep(2000); //延时2秒 System.out.println(this.currentThread().getName()+"爆炸"); &#125;catch (InterruptedException e)&#123; e.printStackTrace(); &#125; &#125;&#125; 线程常用的方法 Thread(“线程对象”,”线程定义名字”) ； 构造方法 a.start(); 启动线程 a.currentThread(); 获取当前线程 a.currentThread().getName(); 获得名字 a.isAlive(); 判断线程是否处于存活状态 a.sleep(); 线程延迟（睡眠） a.getId(); 取得线程的唯一标识 守护线程 守护线程与普通线程的唯一区别是：当JVM中所有的线程都是守护线程的时候，JVM就可以退出了；如果还有一个或以上的非守护线程则不会退出。 特点：用户线程结束，守护线程跟着结束 作用：通常用于服务程序，服务主线程程序 isDeamon(): 是否为守护线程 setDeamon(true); 设置为守护线程 线程等待与唤醒 synchronized等待唤醒机制主要指的是notify()/notifyAll()和wait()方法 在使用这3个方法时，必须处于synchronized代码块或者synchronized方法中，否则就会抛出IllegalMonitorStateException异常。 wait()：让当前线程进入等待状态，同时，wait()也会让当前线程释放它所持有的锁。 notify()：唤醒在此对象监视器上等待的单个线程。 notifyAll()：唤醒在此对象监视器上等待的所有线程。 12345678910111213141516171819202122232425262728293031public class WaitThread extends Thread&#123; public static void main(String[] args) &#123; ThreadA t1 = new ThreadA("t1");// WaitThread t1 = new WaitThread(); synchronized (t1)&#123; try&#123; System.out.println(Thread.currentThread().getName()+" start t1"); t1.start(); System.out.println(Thread.currentThread().getName()+" wait()"); t1.wait(); System.out.println(Thread.currentThread().getName()+" continue()"); &#125;catch (InterruptedException e) &#123; e.printStackTrace(); &#125; &#125; &#125;&#125;class ThreadA extends Thread&#123; public ThreadA(String name)&#123; super (name); &#125; @Override public void run() &#123; synchronized (this)&#123; System.out.println(Thread.currentThread().getName()+" call notify()"); notify(); &#125; &#125;&#125; 执行结果： 1234main start t1main wait()t1 call notify()main continue() Timer定时器 这个方法是调度一个task，在delay（ms）后开始调度，每次调度完后，最少等待period（ms）后才开始调度。 timer.schedule(task,1000/date,2000); 使用： 创建一个Timer对象； 调用里面的设置时间和任务的方法： void schedule(TimerTask task, long delay) 安排在指定延迟后执行指定的任务 自定义一个类 extends TimerTask 覆写TimerTask 中的run方法 运行程序]]></content>
+      <categories>
+        <category>Java</category>
+      </categories>
+      <tags>
+        <tag>Java</tag>
+        <tag>笔记</tag>
+        <tag>线程</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[Cu的第一篇博客文章]]></title>
     <url>%2F2019%2F07%2F20%2FCu%E7%9A%84%E7%AC%AC%E4%B8%80%E7%AF%87%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%2F</url>
     <content type="text"><![CDATA[第一章内容 第二章内容 参考文献内容]]></content>
+      <tags>
+        <tag>Test</tag>
+      </tags>
   </entry>
   <entry>
     <title><![CDATA[Hello World]]></title>
