@@ -1956,7 +1956,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #3d9890;
+  background: #53bb7c;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3253,11 +3253,4 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
-}
-body {
-  background-color: #fff; /*Default bg, similar to the backgrounds base color*/
-  background-image: url("/images/background.jpg");
-  background-position: right bottom; /*Positioning*/
-  background-attachment: fixed;
-  background-repeat: no-repeat; /*Prevent showing multiple background images*/
 }
