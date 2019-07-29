@@ -1324,7 +1324,7 @@ pre .javascript .function {
   visibility: visible;
 }
 .posts-expand .post-body ul li {
-  list-style: circle;
+  list-style: disc;
 }
 .posts-expand .post-body img {
   box-sizing: border-box;
@@ -1956,7 +1956,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #25ffb5;
+  background: #8691c6;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3253,4 +3253,7 @@ pre .javascript .function {
   .pagination {
     margin: 8px 0 0;
   }
+}
+ul {
+  list-style-type: disc;
 }
