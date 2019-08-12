@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Cu">
 <meta property="og:description" content="进程概述 进程就是在某种程度上相互隔离的、独立运行的程序，可以看成是正在运行的一大段代码">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-08-07T13:26:24.162Z">
+<meta property="og:updated_time" content="2019-08-12T02:14:17.728Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="关于线程的一些总结">
 <meta name="twitter:description" content="进程概述 进程就是在某种程度上相互隔离的、独立运行的程序，可以看成是正在运行的一大段代码">
@@ -484,10 +484,10 @@
 </ul>
 <ul>
 <li><p>锁机制</p>
-<p>1、ReentrantLock类是可重入、互斥、实现了Lock接口的锁</p>
-<p>2、ReentrantLock()</p>
-<p>lock();   //获得锁</p>
-<p>unlock();  //释放锁</p>
+<p>1、<code>ReentrantLock</code>类是可重入、互斥、实现了Lock接口的锁</p>
+<p>2、<code>ReentrantLock()</code></p>
+<p><code>lock();</code>   //获得锁</p>
+<p><code>unlock();</code> //释放锁</p>
 </li>
 <li><p>这两种方法的代码：</p>
 </li>
@@ -497,27 +497,27 @@
 <h2 id="定时器sleep"><a href="#定时器sleep" class="headerlink" title="定时器sleep()"></a>定时器sleep()</h2><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">TestSleep1</span> <span class="keyword">extends</span>  <span class="title">Thread</span> </span>&#123;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            System.out.println(<span class="keyword">this</span>.currentThread().getName()+<span class="string">"开始"</span>);</span><br><span class="line">            Thread.sleep(<span class="number">2000</span>);   <span class="comment">//延时2秒</span></span><br><span class="line">            System.out.println(<span class="keyword">this</span>.currentThread().getName()+<span class="string">"爆炸"</span>);</span><br><span class="line">        &#125;<span class="keyword">catch</span> (InterruptedException e)&#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
 <h2 id="线程常用的方法"><a href="#线程常用的方法" class="headerlink" title="线程常用的方法"></a>线程常用的方法</h2><ul>
-<li>Thread(“线程对象”,”线程定义名字”) ；   构造方法</li>
-<li>a.start();   启动线程</li>
-<li>a.currentThread();   获取当前线程</li>
-<li>a.currentThread().getName();   获得名字</li>
-<li>a.isAlive();  判断线程是否处于存活状态</li>
-<li>a.sleep();    线程延迟（睡眠）</li>
-<li>a.getId();   取得线程的唯一标识</li>
+<li><code>Thread(&quot;线程对象&quot;,&quot;线程定义名字&quot;) ；</code>   构造方法</li>
+<li><code>a.start();</code>   启动线程</li>
+<li><code>a.currentThread();</code>  获取当前线程</li>
+<li><code>a.currentThread().getName();</code>   获得名字</li>
+<li><code>a.isAlive();</code>  判断线程是否处于存活状态</li>
+<li><code>a.sleep();</code>    线程延迟（睡眠）</li>
+<li><code>a.getId();</code>   取得线程的唯一标识</li>
 </ul>
 <h2 id="守护线程"><a href="#守护线程" class="headerlink" title="守护线程"></a>守护线程</h2><ul>
 <li>守护线程与普通线程的唯一区别是：当JVM中所有的线程都是守护线程的时候，JVM就可以退出了；如果还有一个或以上的非守护线程则不会退出。</li>
 <li>特点：用户线程结束，守护线程跟着结束</li>
 <li>作用：通常用于服务程序，服务主线程程序</li>
-<li>isDeamon():  是否为守护线程</li>
-<li>setDeamon(true); 设置为守护线程</li>
+<li><code>isDeamon();</code> 是否为守护线程</li>
+<li><code>setDeamon(true);</code> 设置为守护线程</li>
 </ul>
 <h2 id="线程等待与唤醒"><a href="#线程等待与唤醒" class="headerlink" title="线程等待与唤醒"></a>线程等待与唤醒</h2><ul>
-<li>synchronized等待唤醒机制主要指的是notify()/notifyAll()和wait()方法</li>
-<li>在使用这3个方法时，必须处于synchronized代码块或者synchronized方法中，否则就会抛出IllegalMonitorStateException异常。</li>
-<li>wait()：让当前线程进入等待状态，同时，wait()也会让当前线程释放它所持有的锁。</li>
-<li>notify()：唤醒在此对象监视器上等待的单个线程。 </li>
-<li>notifyAll()：唤醒在此对象监视器上等待的所有线程。 </li>
+<li><code>synchronized</code>等待唤醒机制主要指的是<code>notify()/notifyAll()</code>和<code>wait()</code>方法</li>
+<li>在使用这3个方法时，必须处于<code>synchronized</code>代码块或者<code>synchronized</code>方法中，否则就会抛出<code>IllegalMonitorStateException</code>异常。</li>
+<li><code>wait()</code>：让当前线程进入等待状态，同时，<code>wait()</code>也会让当前线程释放它所持有的锁。</li>
+<li><code>notify()</code>：唤醒在此对象监视器上等待的单个线程。 </li>
+<li><code>notifyAll()</code>：唤醒在此对象监视器上等待的所有线程。 </li>
 </ul>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">WaitThread</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line">        ThreadA t1 = <span class="keyword">new</span> ThreadA(<span class="string">"t1"</span>);</span><br><span class="line"><span class="comment">//        WaitThread t1 = new WaitThread();</span></span><br><span class="line">        <span class="keyword">synchronized</span> (t1)&#123;</span><br><span class="line">            <span class="keyword">try</span>&#123;</span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">" start t1"</span>);</span><br><span class="line">                t1.start();</span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">" wait()"</span>);</span><br><span class="line">                t1.wait();</span><br><span class="line">                System.out.println(Thread.currentThread().getName()+<span class="string">" continue()"</span>);</span><br><span class="line">            &#125;<span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">                e.printStackTrace();</span><br><span class="line">            &#125;</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="class"><span class="keyword">class</span> <span class="title">ThreadA</span> <span class="keyword">extends</span> <span class="title">Thread</span></span>&#123;</span><br><span class="line"></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="title">ThreadA</span><span class="params">(String name)</span></span>&#123;</span><br><span class="line">        <span class="keyword">super</span> (name);</span><br><span class="line">    &#125;</span><br><span class="line">    <span class="meta">@Override</span></span><br><span class="line">    <span class="function"><span class="keyword">public</span> <span class="keyword">void</span> <span class="title">run</span><span class="params">()</span> </span>&#123;</span><br><span class="line">        <span class="keyword">synchronized</span> (<span class="keyword">this</span>)&#123;</span><br><span class="line">            System.out.println(Thread.currentThread().getName()+<span class="string">" call notify()"</span>);</span><br><span class="line">            notify();</span><br><span class="line">        &#125;</span><br><span class="line">    &#125;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 
@@ -527,7 +527,7 @@
 <h2 id="Timer定时器"><a href="#Timer定时器" class="headerlink" title="Timer定时器"></a>Timer定时器</h2><ul>
 <li><p>这个方法是调度一个task，在delay（ms）后开始调度，每次调度完后，最少等待period（ms）后才开始调度。</p>
 <ul>
-<li>timer.schedule(task,1000/date,2000);</li>
+<li><code>timer.schedule(task,1000/date,2000);</code></li>
 </ul>
 </li>
 <li><p>使用：</p>
@@ -535,11 +535,11 @@
 <li><p>创建一个Timer对象；</p>
 </li>
 <li><p>调用里面的设置时间和任务的方法：</p>
-<p>void schedule(TimerTask task, long delay) 安排在指定延迟后执行指定的任务 </p>
+<p><code>void schedule(TimerTask task, long delay)</code> 安排在指定延迟后执行指定的任务 </p>
 </li>
-<li><p>自定义一个类 extends TimerTask</p>
+<li><p>自定义一个类 <code>extends TimerTask</code></p>
 </li>
-<li><p>覆写TimerTask 中的run方法</p>
+<li><p>覆写<code>TimerTask</code> 中的<code>run</code>方法</p>
 </li>
 <li><p>运行程序</p>
 </li>
@@ -724,7 +724,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">6</span>
+                  <span class="site-state-item-count">7</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
