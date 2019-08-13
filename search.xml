@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[tomcat端口被占用]]></title>
+    <url>%2F2019%2F08%2F13%2Ftomcat%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8%2F</url>
+    <content type="text"><![CDATA[Several ports (8005, 8080, 8009) required by Tomcat v8.5 Server at localhost are already in use… 当Run on Server后报这种错误后，说明tomcat端口号被占用。 此时，重启电脑可以解决，哈哈，但是太麻烦了没有必要。 下面介绍另一种方法： win + R ，输入cmd进入命令行界面 输入netstat -ano|findstr 8080查看占用8080端口号的进程 输入taskkill /pid 19972 /f 将显示的进程号结束掉 最后再重启tomcat就行了。]]></content>
+      <categories>
+        <category>error</category>
+      </categories>
+      <tags>
+        <tag>笔记</tag>
+        <tag>error</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[JavaScript中不同数据类型的运算]]></title>
     <url>%2F2019%2F08%2F12%2FJavaScript%E4%B8%AD%E4%B8%8D%E5%90%8C%E6%95%B0%E6%8D%AE%E7%B1%BB%E5%9E%8B%E7%9A%84%E8%BF%90%E7%AE%97%2F</url>
     <content type="text"><![CDATA[不同类型的变量进行运算 1234567891011121314151617181920212223242526271 + '2' //'12'1 + 2 + '3' //'33'1 + null //11 + true //1+1=21 + false //1+0=1true + true //2null + false //0+0=01 + 's' //'1s''s' + null //'snull''s' + true // 'strue'null + undefined //NaN1 + undefined //NaN's' + undefined //'sundefined'1 + undefined + 's' //NaNs 数据前有‘+’，可以让字符串转化为数字12+'1'+1 //2+'s'+2 //NaN]]></content>
