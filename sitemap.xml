@@ -2,6 +2,20 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   
   <url>
+    <loc>http://yoursite.com/2019/09/09/Mybatis-Generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</loc>
+    
+    <lastmod>2019-09-09T12:12:29.074Z</lastmod>
+    
+  </url>
+  
+  <url>
+    <loc>http://yoursite.com/2019/07/29/JDBC%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/</loc>
+    
+    <lastmod>2019-09-09T11:59:31.785Z</lastmod>
+    
+  </url>
+  
+  <url>
     <loc>http://yoursite.com/2019/08/13/tomcat%E7%AB%AF%E5%8F%A3%E8%A2%AB%E5%8D%A0%E7%94%A8/</loc>
     
     <lastmod>2019-09-09T11:50:53.706Z</lastmod>
@@ -19,13 +33,6 @@
     <loc>http://yoursite.com/2019/07/23/%E7%BA%BF%E7%A8%8B/</loc>
     
     <lastmod>2019-08-12T02:14:17.728Z</lastmod>
-    
-  </url>
-  
-  <url>
-    <loc>http://yoursite.com/2019/07/29/Java%EF%BC%9AJDBC%E7%BC%96%E7%A8%8B%E6%80%BB%E7%BB%93/</loc>
-    
-    <lastmod>2019-08-12T02:11:04.067Z</lastmod>
     
   </url>
   
