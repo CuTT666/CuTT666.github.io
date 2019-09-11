@@ -1,6 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
+    <loc>http://yoursite.com/2019/09/11/SSM%E6%95%B4%E5%90%88%E4%B8%ADMySQL8%E5%AF%B9%E5%BA%94Druid%E7%89%88%E6%9C%AC%E9%97%AE%E9%A2%98%E4%BB%A5%E5%8F%8AdataSource%E7%9A%84%E9%85%8D%E7%BD%AE/</loc>
+    <lastmod>2019-09-11</lastmod>
+  </url>  <url>
     <loc>http://yoursite.com/2019/09/09/Mybatis-Generator%E8%87%AA%E5%8A%A8%E7%94%9F%E6%88%90%E4%BB%A3%E7%A0%81/</loc>
     <lastmod>2019-09-09</lastmod>
   </url>  <url>
