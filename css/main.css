@@ -1956,7 +1956,7 @@ pre .javascript .function {
   width: 4px;
   height: 4px;
   border-radius: 50%;
-  background: #a6ffb8;
+  background: #ff6294;
 }
 .links-of-blogroll {
   font-size: 13px;
@@ -3260,7 +3260,7 @@ ul {
 body {
   background: url("/images/xk2.jpg");
 /* background-color: rgb(81, 81, 81); */
-  background-color: #3b3b3b;
+  background-color: #000;
   background-repeat: no-repeat;
   background-attachment: fixed;
   background-position: 50% 50%;
