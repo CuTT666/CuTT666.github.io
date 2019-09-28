@@ -87,7 +87,7 @@
 <meta property="og:site_name" content="Cu">
 <meta property="og:description" content="自动生成代码步骤">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-09T12:12:29.074Z">
+<meta property="og:updated_time" content="2019-09-28T03:11:52.126Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Mybatis Generator自动生成代码">
 <meta name="twitter:description" content="自动生成代码步骤">
@@ -437,8 +437,8 @@
 <li><p>新建web项目</p>
 </li>
 <li><p>导入mybatis.jar；mybatis-generator-core.jar；mysql-connector-java.jar。</p>
-<p>注意，mysql-connector-java.jar需要在项目根目录再导入一份并buildpath。为了后面的配置文件中`&lt;classPathEntry</p>
-<pre><code>location=&quot;mysql-connector-java-8.0.17.jar&quot; /&gt;`不出错。</code></pre></li>
+<p>注意，mysql-connector-java.jar需要在项目根目录再导入一份并buildpath。为了后面的配置文件中<code>&lt;classPathEntry location=&quot;mysql-connector-java-8.0.17.jar&quot; /&gt;</code>不出错。</p>
+</li>
 <li><p>再src目录下加Generate.java</p>
 <figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.api.MyBatisGenerator;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.xml.ConfigurationParser;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.InvalidConfigurationException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.XMLParserException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.internal.DefaultShellCallback;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.nio.cs.Surrogate.Generator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		List&lt;String&gt; warnings = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">boolean</span> overwrite = <span class="keyword">true</span>;<span class="comment">//如果已经生成过了是否进行覆盖</span></span><br><span class="line">        String genCfg = <span class="string">"/generatorConfig2.xml"</span>;<span class="comment">//配置文件的路径:可以放到自己喜欢的目录下面</span></span><br><span class="line">        </span><br><span class="line">        URL url = Generator.class.getResource(genCfg);</span><br><span class="line">        String file = url.getFile();</span><br><span class="line">        File configFile = <span class="keyword">new</span> File(file);</span><br><span class="line"></span><br><span class="line">        InputStream is = Generator.class.getResourceAsStream(genCfg);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//System.out.println(is==null);</span></span><br><span class="line">       </span><br><span class="line">        ConfigurationParser cfgParser = <span class="keyword">new</span> ConfigurationParser(warnings);<span class="comment">//配置文件解析器</span></span><br><span class="line">        Configuration config = <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">        	<span class="comment">//config = cfgParser.parseConfiguration(is);</span></span><br><span class="line">        	config = cfgParser.parseConfiguration(configFile);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (XMLParserException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        DefaultShellCallback callback = <span class="keyword">new</span> DefaultShellCallback(overwrite);</span><br><span class="line">        MyBatisGenerator generator = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            generator = <span class="keyword">new</span> MyBatisGenerator(config, callback, warnings);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidConfigurationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            generator.generate(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">"mybatis 代码生成成功。。。"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(String warning: warnings) &#123;</span><br><span class="line">            	System.out.println(warning);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
 </li>
@@ -469,6 +469,43 @@
     
     
 
+    <div>
+        
+            
+<div class="my_post_copyright">
+  <script src="//cdn.bootcss.com/clipboard.js/1.5.10/clipboard.min.js"></script>
+  
+  <!-- JS库 sweetalert 可修改路径 -->
+  <script type="text/javascript" src="http://jslibs.wuxubj.cn/sweetalert_mini/jquery-1.7.1.min.js"></script>
+  <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
+
+  <p><span>本文标题:</span>Mybatis Generator自动生成代码</p>
+  <p><span>文章作者:</span>Cu铜铜</p>
+  <p><span>发布时间:</span>2019年09月09日 - 19:58:02</p>
+  <p><span>最后更新:</span>2019年09月28日 - 11:11:52</p>
+  <p><span>原始链接:</span><a href="/2019/09/09/Mybatis-Generator自动生成代码/" title="Mybatis Generator自动生成代码">http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/" aria-label="复制成功！"></i></span>
+  </p>
+  <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
+</div>
+<script> 
+    var clipboard = new Clipboard('.fa-clipboard');
+    clipboard.on('success', $(function(){
+      $(".fa-clipboard").click(function(){
+        swal({   
+          title: "",   
+          text: '复制成功',   
+          html: false,
+          timer: 500,   
+          showConfirmButton: false
+        });
+      });
+    }));  
+</script>
+
+        
+    </div>
     
 
     
@@ -497,6 +534,24 @@
       </div>
     
 
+    
+      <div>
+        <ul class="post-copyright">
+  <li class="post-copyright-author">
+    <strong>本文作者：</strong>
+    Cu铜铜
+  </li>
+  <li class="post-copyright-link">
+    <strong>本文链接：</strong>
+    <a href="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/" title="Mybatis Generator自动生成代码">http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/</a>
+  </li>
+  <li class="post-copyright-license">
+    <strong>版权声明： </strong>
+    本博客所有文章除特别声明外，均采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/" rel="external nofollow" target="_blank">CC BY-NC-SA 3.0</a> 许可协议。转载请注明出处！
+  </li>
+</ul>
+
+      </div>
     
 
     <footer class="post-footer">
