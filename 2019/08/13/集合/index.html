@@ -68,7 +68,7 @@
 
 
 
-  <meta name="keywords" content="笔记,Mybatis,Java,框架,">
+  <meta name="keywords" content="笔记,Java,集合,">
 
 
 
@@ -79,18 +79,18 @@
 
 
 
-<meta name="description" content="自动生成代码步骤">
-<meta name="keywords" content="笔记,Mybatis,Java,框架">
+<meta name="description" content="集合 Java中非常重要的工具类，用来存储对象的容器，也成为容器类。">
+<meta name="keywords" content="笔记,Java,集合">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Mybatis Generator自动生成代码">
-<meta property="og:url" content="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/index.html">
+<meta property="og:title" content="集合">
+<meta property="og:url" content="http://yoursite.com/2019/08/13/集合/index.html">
 <meta property="og:site_name" content="Cu">
-<meta property="og:description" content="自动生成代码步骤">
+<meta property="og:description" content="集合 Java中非常重要的工具类，用来存储对象的容器，也成为容器类。">
 <meta property="og:locale" content="zh-Hans">
-<meta property="og:updated_time" content="2019-09-28T03:11:52.126Z">
+<meta property="og:updated_time" content="2019-11-12T01:24:39.568Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="Mybatis Generator自动生成代码">
-<meta name="twitter:description" content="自动生成代码步骤">
+<meta name="twitter:title" content="集合">
+<meta name="twitter:description" content="集合 Java中非常重要的工具类，用来存储对象的容器，也成为容器类。">
 
 
 
@@ -120,13 +120,13 @@
 
 
 
-  <link rel="canonical" href="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/">
+  <link rel="canonical" href="http://yoursite.com/2019/08/13/集合/">
 
 
 
 
 
-  <title>Mybatis Generator自动生成代码 | Cu</title>
+  <title>集合 | Cu</title>
   
 
 
@@ -296,7 +296,7 @@
   
   
   <div class="post-block">
-    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/">
+    <link itemprop="mainEntityOfPage" href="http://yoursite.com/2019/08/13/集合/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="Cu铜铜">
@@ -313,7 +313,7 @@
 
         
         
-          <h1 class="post-title" itemprop="name headline">Mybatis Generator自动生成代码</h1>
+          <h1 class="post-title" itemprop="name headline">集合</h1>
         
 
         <div class="post-meta">
@@ -325,8 +325,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-09-09T19:58:02+08:00">
-                2019-09-09
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-08-13T19:20:36+08:00">
+                2019-08-13
               </time>
             
 
@@ -348,8 +348,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Mybatis/" itemprop="url" rel="index">
-                    <span itemprop="name">Mybatis</span>
+                  <a href="/categories/Java/" itemprop="url" rel="index">
+                    <span itemprop="name">Java</span>
                   </a>
                 </span>
 
@@ -366,8 +366,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2019/09/09/Mybatis-Generator自动生成代码/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count valine-comment-count" data-xid="/2019/09/09/Mybatis-Generator自动生成代码/" itemprop="commentCount"></span>
+                <a href="/2019/08/13/集合/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count valine-comment-count" data-xid="/2019/08/13/集合/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -394,7 +394,7 @@
                   <span class="post-meta-item-text">字数统计&#58;</span>
                 
                 <span title="字数统计">
-                  655
+                  1.1k
                 </span>
               
 
@@ -410,7 +410,7 @@
                   <span class="post-meta-item-text">阅读时长 &asymp;</span>
                 
                 <span title="阅读时长">
-                  3
+                  4
                 </span>
               
             </div>
@@ -431,37 +431,67 @@
       
 
       
-        <h2 id="自动生成代码步骤"><a href="#自动生成代码步骤" class="headerlink" title="自动生成代码步骤"></a>自动生成代码步骤</h2><a id="more"></a>
+        <h2 id="集合"><a href="#集合" class="headerlink" title="集合"></a>集合</h2><ul>
+<li>Java中非常重要的工具类，用来存储对象的容器，也成为容器类。</li>
+</ul>
+<a id="more"></a>
 
-<ol>
-<li><p>新建web项目</p>
-</li>
-<li><p>导入mybatis.jar；mybatis-generator-core.jar；mysql-connector-java.jar。</p>
-<p>注意，mysql-connector-java.jar需要在项目根目录再导入一份并buildpath。为了后面的配置文件中<code>&lt;classPathEntry location=&quot;mysql-connector-java-8.0.17.jar&quot; /&gt;</code>不出错。</p>
-</li>
-<li><p>再src目录下加Generate.java</p>
-<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br><span class="line">49</span><br><span class="line">50</span><br><span class="line">51</span><br><span class="line">52</span><br><span class="line">53</span><br><span class="line">54</span><br><span class="line">55</span><br><span class="line">56</span><br><span class="line">57</span><br><span class="line">58</span><br><span class="line">59</span><br><span class="line">60</span><br><span class="line">61</span><br><span class="line">62</span><br><span class="line">63</span><br><span class="line">64</span><br><span class="line">65</span><br><span class="line">66</span><br><span class="line">67</span><br><span class="line">68</span><br><span class="line">69</span><br><span class="line">70</span><br><span class="line">71</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">import</span> java.io.File;</span><br><span class="line"><span class="keyword">import</span> java.io.IOException;</span><br><span class="line"><span class="keyword">import</span> java.io.InputStream;</span><br><span class="line"><span class="keyword">import</span> java.net.URL;</span><br><span class="line"><span class="keyword">import</span> java.sql.SQLException;</span><br><span class="line"><span class="keyword">import</span> java.util.ArrayList;</span><br><span class="line"><span class="keyword">import</span> java.util.List;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.api.MyBatisGenerator;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.Configuration;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.config.xml.ConfigurationParser;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.InvalidConfigurationException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.exception.XMLParserException;</span><br><span class="line"><span class="keyword">import</span> org.mybatis.generator.internal.DefaultShellCallback;</span><br><span class="line"></span><br><span class="line"><span class="keyword">import</span> sun.nio.cs.Surrogate.Generator;</span><br><span class="line"></span><br><span class="line"><span class="keyword">public</span> <span class="class"><span class="keyword">class</span> <span class="title">Generate</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">	<span class="function"><span class="keyword">public</span> <span class="keyword">static</span> <span class="keyword">void</span> <span class="title">main</span><span class="params">(String[] args)</span> </span>&#123;</span><br><span class="line"></span><br><span class="line">		List&lt;String&gt; warnings = <span class="keyword">new</span> ArrayList&lt;String&gt;();</span><br><span class="line">        <span class="keyword">boolean</span> overwrite = <span class="keyword">true</span>;<span class="comment">//如果已经生成过了是否进行覆盖</span></span><br><span class="line">        String genCfg = <span class="string">"/generatorConfig2.xml"</span>;<span class="comment">//配置文件的路径:可以放到自己喜欢的目录下面</span></span><br><span class="line">        </span><br><span class="line">        URL url = Generator.class.getResource(genCfg);</span><br><span class="line">        String file = url.getFile();</span><br><span class="line">        File configFile = <span class="keyword">new</span> File(file);</span><br><span class="line"></span><br><span class="line">        InputStream is = Generator.class.getResourceAsStream(genCfg);</span><br><span class="line">        </span><br><span class="line">        <span class="comment">//System.out.println(is==null);</span></span><br><span class="line">       </span><br><span class="line">        ConfigurationParser cfgParser = <span class="keyword">new</span> ConfigurationParser(warnings);<span class="comment">//配置文件解析器</span></span><br><span class="line">        Configuration config = <span class="keyword">null</span>;</span><br><span class="line">        </span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">        	<span class="comment">//config = cfgParser.parseConfiguration(is);</span></span><br><span class="line">        	config = cfgParser.parseConfiguration(configFile);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (XMLParserException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        </span><br><span class="line">        DefaultShellCallback callback = <span class="keyword">new</span> DefaultShellCallback(overwrite);</span><br><span class="line">        MyBatisGenerator generator = <span class="keyword">null</span>;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            generator = <span class="keyword">new</span> MyBatisGenerator(config, callback, warnings);</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InvalidConfigurationException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">        <span class="keyword">try</span> &#123;</span><br><span class="line">            generator.generate(<span class="keyword">null</span>);</span><br><span class="line">            System.out.println(<span class="string">"mybatis 代码生成成功。。。"</span>);</span><br><span class="line">            </span><br><span class="line">            <span class="keyword">for</span>(String warning: warnings) &#123;</span><br><span class="line">            	System.out.println(warning);</span><br><span class="line">            &#125;</span><br><span class="line">        &#125; <span class="keyword">catch</span> (SQLException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (IOException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125; <span class="keyword">catch</span> (InterruptedException e) &#123;</span><br><span class="line">            e.printStackTrace();</span><br><span class="line">        &#125;</span><br><span class="line">		</span><br><span class="line"></span><br><span class="line">	&#125;</span><br><span class="line"></span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-</li>
-<li><p>再src目录下加generatorConfig.xml</p>
-<p>注意：</p>
 <ul>
-<li><p>connectionURL中，如果mysql版本是8.0以上，后面要加<code>?serverTimezone=UTC</code></p>
+<li><p>不但可以存放数量不等的对象，还能存放具有映射关系的键值对</p>
 </li>
-<li><p>为防止生成很多文件，在<code>&lt;jdbcConnection&gt;</code>标签中添加<code>&lt;property name=&quot;nullCatalogMeansCurrent&quot; value=&quot;true&quot; /&gt;</code></p>
+<li><p>原本数组也是和集合差不多的含义，但是java默认的数组的功能有限（如<strong>定长</strong>），特使用集合来解决更加特殊的需要，即当你事先不知道要存放数据的个数，或者你需要一种比<a href="https://baike.baidu.com/item/数组" target="_blank" rel="noopener">数组</a>下标存取机制更灵活的方法时，你就需要用到集合类。</p>
 </li>
-<li><p>去掉注释：</p>
-<p>suppressDate是去掉生成日期那行注释</p>
-<p>suppressAllComments是去掉所有的注解</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressDate"</span> <span class="attr">value</span>=<span class="string">"true"</span>/&gt;</span></span><br><span class="line">        <span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line"><span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br></pre></td></tr></table></figure>
+<li><p>集合与数组</p>
+<ul>
+<li><p><a href="https://baike.baidu.com/item/数组" target="_blank" rel="noopener">数组</a>：创建时，元素个数就确定了。</p>
+<p>集合：可以动态增加、减少元素。</p>
+</li>
+<li><p>l 数组Array：访问速度快； 增、删 的速度慢。</p>
+<p>l 链表Link：增、删 的速度快， 访问的速度慢。</p>
+</li>
+<li><p><code>Arrays.sort(数组)</code>  是为数组排序而用的；</p>
+<p><code>Collections.sort(List list)</code> 是为集合排序而用；</p>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="Collection和Map"><a href="#Collection和Map" class="headerlink" title="Collection和Map"></a>Collection和Map</h3><ul>
+<li>Collection定义在java.util包下，是整个Java类中保存单值集合的最大父接口。一般使用其子接口List和Set。</li>
+<li>Set（集）接口：强调元素不能重复，即唯一性；但无序</li>
+<li>List（列表）接口：强调元素是有序的，但可以重复，即不唯一性</li>
+<li>Map（映射）接口：演化成（键，值）对，：键：唯一，无序；值：不唯一,无序。（也称映射）；</li>
+</ul>
+<h3 id="Hashset"><a href="#Hashset" class="headerlink" title="Hashset"></a>Hashset</h3><ol>
+<li>如果对象和已有的元素的地址相同（==），则add（）不添加</li>
+<li>会调用对象的HashCode（）；<ul>
+<li>如果发现和已有所有元素的HashCode（）值都不同，就认为是不同对象，则add（）加入</li>
+<li>如果发现和已有某个元素的Hash Code（）值相同，那么就再使用equals（）来判断，如果比较时得到true，则不添加，反之添加。</li>
+</ul>
+</li>
+</ol>
+<ul>
+<li><p>HashCode（）是计算对象的特征值，是一个整数，Java中每个HashCode的值都不同</p>
+<p>用hashCode计算出对象的特征值</p>
+<figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//用特征值减少了比较次数，例如特征值定义为id.length()</span></span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="string">"小明"</span>,<span class="number">12</span>,<span class="string">"5001111"</span>);  <span class="comment">//特征值7</span></span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="string">"小红"</span>,<span class="number">12</span>,<span class="string">"5001112"</span>);  <span class="comment">//特征值7</span></span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="string">"小a"</span>,<span class="number">15</span>,<span class="string">"5001155"</span>);	<span class="comment">//特征值7</span></span><br><span class="line"></span><br><span class="line">Person p1 = <span class="keyword">new</span> Person(<span class="string">"小明"</span>,<span class="number">12</span>,<span class="string">"5001"</span>);   <span class="comment">//特征值4</span></span><br></pre></td></tr></table></figure>
+
+
 
 </li>
 </ul>
-<p>总的代码：</p>
-<figure class="highlight xml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br></pre></td><td class="code"><pre><span class="line"><span class="meta">&lt;?xml version="1.0" encoding="UTF-8"?&gt;</span></span><br><span class="line"><span class="meta">&lt;!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd"&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;<span class="name">generatorConfiguration</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="comment">&lt;!-- 利用自己写java代码来调用 --&gt;</span></span><br><span class="line">	<span class="tag">&lt;<span class="name">classPathEntry</span></span></span><br><span class="line"><span class="tag">		<span class="attr">location</span>=<span class="string">"mysql-connector-java-8.0.17.jar"</span> /&gt;</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;<span class="name">context</span> <span class="attr">id</span>=<span class="string">"MBG"</span> <span class="attr">targetRuntime</span>=<span class="string">"MyBatis3"</span></span></span><br><span class="line"><span class="tag">		<span class="attr">defaultModelType</span>=<span class="string">"flat"</span>&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"beginningDelimiter"</span> <span class="attr">value</span>=<span class="string">"`"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"endingDelimiter"</span> <span class="attr">value</span>=<span class="string">"`"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressDate"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"suppressAllComments"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">commentGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">jdbcConnection</span> <span class="attr">driverClass</span>=<span class="string">"com.mysql.cj.jdbc.Driver"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">connectionURL</span>=<span class="string">"jdbc:mysql://localhost:3366/hellomysql?serverTimezone=UTC"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">userId</span>=<span class="string">"root"</span> <span class="attr">password</span>=<span class="string">"123"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"nullCatalogMeansCurrent"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">jdbcConnection</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">javaModelGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.qq.model"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">targetProject</span>=<span class="string">"src"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">property</span> <span class="attr">name</span>=<span class="string">"trimStrings"</span> <span class="attr">value</span>=<span class="string">"true"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">javaModelGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">sqlMapGenerator</span> <span class="attr">targetPackage</span>=<span class="string">"com.qq.mapper"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">targetProject</span>=<span class="string">"src"</span>&gt;</span><span class="tag">&lt;/<span class="name">sqlMapGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">javaClientGenerator</span> <span class="attr">type</span>=<span class="string">"XMLMAPPER"</span></span></span><br><span class="line"><span class="tag">			<span class="attr">targetPackage</span>=<span class="string">"com.qq.mapper"</span> <span class="attr">targetProject</span>=<span class="string">"src"</span>&gt;</span><span class="tag">&lt;/<span class="name">javaClientGenerator</span>&gt;</span></span><br><span class="line"></span><br><span class="line">		<span class="tag">&lt;<span class="name">table</span> <span class="attr">tableName</span>=<span class="string">"%"</span>&gt;</span></span><br><span class="line">			<span class="tag">&lt;<span class="name">generatedKey</span> <span class="attr">column</span>=<span class="string">"id"</span> <span class="attr">sqlStatement</span>=<span class="string">"MySql"</span> /&gt;</span></span><br><span class="line">		<span class="tag">&lt;/<span class="name">table</span>&gt;</span></span><br><span class="line"></span><br><span class="line">	<span class="tag">&lt;/<span class="name">context</span>&gt;</span></span><br><span class="line"></span><br><span class="line"><span class="tag">&lt;/<span class="name">generatorConfiguration</span>&gt;</span></span><br></pre></td></tr></table></figure>
-</li>
-<li><p>运行Generate.java</p>
-</li>
-</ol>
+<ul>
+<li>如果对象的特征值不同，那么肯定是不同的对象，这样就可以添加进集合</li>
+<li>如果特征值相同，那么就要进一步判断，每个对象比较，Java中用equals（）；</li>
+</ul>
+<h3 id="Set"><a href="#Set" class="headerlink" title="Set"></a>Set</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br></pre></td><td class="code"><pre><span class="line">HashSet&lt;Integer&gt; hs = <span class="keyword">new</span> HashSet&lt;Integer&gt;();</span><br><span class="line"></span><br><span class="line">Integer i1 = <span class="keyword">new</span> Integer(<span class="number">5</span>);</span><br><span class="line">Integer i2 = <span class="keyword">new</span> Integer(<span class="number">15</span>);</span><br><span class="line">Integer i3 = <span class="keyword">new</span> Integer(<span class="number">25</span>);</span><br><span class="line"></span><br><span class="line">hs.add(i1);</span><br><span class="line">hs.add(i2);</span><br><span class="line">hs.add(i3);  <span class="comment">//唯一性</span></span><br><span class="line">hs.add(i1);  <span class="comment">//唯一性</span></span><br><span class="line"></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Object object : hs) &#123;</span><br><span class="line">    System.out.println(object);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"~~~~~~~~~~~~~~~~"</span>);</span><br><span class="line"></span><br><span class="line">ArrayList&lt;Integer&gt; al= <span class="keyword">new</span> ArrayList&lt;Integer&gt;();       <span class="comment">//可重复了</span></span><br><span class="line">al.add(i1);al.add(i2);al.add(i3);</span><br><span class="line">al.add(i1);al.add(i2);al.add(i3);</span><br><span class="line"><span class="keyword">for</span> (Object object : al) &#123;</span><br><span class="line">    System.out.println(object);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="List以及遍历"><a href="#List以及遍历" class="headerlink" title="List以及遍历"></a>List以及遍历</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line">ArrayList&lt;String&gt; al = <span class="keyword">new</span> ArrayList&lt;String&gt;();    <span class="comment">//泛型：类型被参数化，类型可以被传递</span></span><br><span class="line"></span><br><span class="line">al.add(<span class="string">"a"</span>);</span><br><span class="line">al.add(<span class="string">"b"</span>);</span><br><span class="line">al.add(<span class="string">"c"</span>);</span><br><span class="line"><span class="comment">//al.add(1);</span></span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (Object object : al) &#123;</span><br><span class="line">    System.out.print(object);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"></span><br><span class="line"><span class="comment">//利用size（）和get（）方法，数组用length</span></span><br><span class="line">System.out.println(al.size());</span><br><span class="line"><span class="keyword">for</span>(<span class="keyword">int</span> i = <span class="number">0</span>;i&lt;al.size();i++) &#123;</span><br><span class="line">    System.out.print(al.get(i));</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"></span><br><span class="line"><span class="comment">//利用迭代Iterator对象   单向</span></span><br><span class="line">Iterator&lt;String&gt; it = al.iterator();</span><br><span class="line"><span class="keyword">while</span>(it.hasNext()) &#123;</span><br><span class="line">    Object t = it.next();</span><br><span class="line">    System.out.print(t);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Map"><a href="#Map" class="headerlink" title="Map"></a>Map</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">//键值对</span></span><br><span class="line">		HashMap&lt;String, Integer&gt; hm = <span class="keyword">new</span> HashMap&lt;String, Integer&gt;();</span><br><span class="line">		hm.put(<span class="string">"a"</span>, <span class="number">5</span>);</span><br><span class="line">		hm.put(<span class="string">"b"</span>, <span class="number">15</span>);</span><br><span class="line">		hm.put(<span class="string">"c"</span>, <span class="number">25</span>);</span><br><span class="line">		hm.put(<span class="string">"d"</span>, <span class="number">35</span>);</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//3.使用Entry对象  //内部类</span></span><br><span class="line">		<span class="keyword">for</span> (Map.Entry&lt;String, Integer&gt; one : hm.entrySet()) &#123;</span><br><span class="line"><span class="comment">//			System.out.println(one.getKey()+"="+one.getValue());</span></span><br><span class="line">			System.out.println(one);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line"><span class="comment">//		System.out.println(hm.get("a"));</span></span><br><span class="line"><span class="comment">//		System.out.println(hm.get("c"));</span></span><br><span class="line">		</span><br><span class="line">		<span class="comment">//通过values（）方法获取值的集合</span></span><br><span class="line">		<span class="keyword">for</span> (Integer one : hm.values()) &#123;</span><br><span class="line">			System.out.println(one);</span><br><span class="line">		&#125;</span><br><span class="line">		</span><br><span class="line">		<span class="comment">//2.通过keySet（）获取键集合</span></span><br><span class="line">		<span class="keyword">for</span> (String string : hm.keySet()) &#123;</span><br><span class="line">			System.out.println(string);</span><br><span class="line">		&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="遍历中删除"><a href="#遍历中删除" class="headerlink" title="遍历中删除"></a>遍历中删除</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">CopyOnWriteArrayList&lt;String&gt; al = <span class="keyword">new</span> CopyOnWriteArrayList&lt;String&gt;();</span><br><span class="line">al.add(<span class="string">"a"</span>);</span><br><span class="line">al.add(<span class="string">"b"</span>);</span><br><span class="line">al.add(<span class="string">"c"</span>);</span><br><span class="line">al.add(<span class="string">"d"</span>);</span><br><span class="line">al.add(<span class="string">"e"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//删除c，但在这个遍历中仍会打印出来</span></span><br><span class="line"><span class="keyword">for</span> (String string : al) &#123;</span><br><span class="line">    <span class="keyword">if</span>(string.equals(<span class="string">"c"</span>)) al.remove(string);</span><br><span class="line">    System.out.println(string);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println(<span class="string">"----------------------"</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//遍历，已删除c</span></span><br><span class="line"><span class="keyword">for</span> (String string : al) &#123;</span><br><span class="line">    System.out.println(string);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<h3 id="通过枚举遍历hashTable"><a href="#通过枚举遍历hashTable" class="headerlink" title="通过枚举遍历hashTable"></a>通过枚举遍历hashTable</h3><figure class="highlight java"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Hashtable&lt;String, Integer&gt; ht = <span class="keyword">new</span> Hashtable&lt;String, Integer&gt;();</span><br><span class="line">		</span><br><span class="line">ht.put(<span class="string">"a"</span>, <span class="number">1</span>);</span><br><span class="line">ht.put(<span class="string">"b"</span>, <span class="number">2</span>);</span><br><span class="line">ht.put(<span class="string">"c"</span>, <span class="number">3</span>);</span><br><span class="line">ht.put(<span class="string">"d"</span>, <span class="number">4</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">//枚举</span></span><br><span class="line">Enumeration&lt;String&gt; em = ht.keys();</span><br><span class="line"></span><br><span class="line"><span class="keyword">while</span>(em.hasMoreElements()) &#123;</span><br><span class="line">    System.out.print(em.nextElement()+<span class="string">","</span>);</span><br><span class="line">&#125;</span><br><span class="line">System.out.println();</span><br><span class="line"></span><br><span class="line">Enumeration&lt;Integer&gt; ele = ht.elements();</span><br><span class="line"><span class="keyword">while</span>(ele.hasMoreElements()) &#123;</span><br><span class="line">    System.out.print(ele.nextElement()+<span class="string">","</span>);</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
 
       
     </div>
@@ -480,12 +510,12 @@
   <script src="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.min.js"></script>
   <link rel="stylesheet" type="text/css" href="http://jslibs.wuxubj.cn/sweetalert_mini/sweetalert.mini.css">
 
-  <p><span>本文标题:</span>Mybatis Generator自动生成代码</p>
+  <p><span>本文标题:</span>集合</p>
   <p><span>文章作者:</span>Cu铜铜</p>
-  <p><span>发布时间:</span>2019年09月09日 - 19:58:02</p>
-  <p><span>最后更新:</span>2019年09月28日 - 11:11:52</p>
-  <p><span>原始链接:</span><a href="/2019/09/09/Mybatis-Generator自动生成代码/" title="Mybatis Generator自动生成代码">http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/</a>
-    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/09/09/Mybatis-Generator自动生成代码/" aria-label="复制成功！"></i></span>
+  <p><span>发布时间:</span>2019年08月13日 - 19:20:36</p>
+  <p><span>最后更新:</span>2019年11月12日 - 09:24:39</p>
+  <p><span>原始链接:</span><a href="/2019/08/13/集合/" title="集合">http://yoursite.com/2019/08/13/集合/</a>
+    <span class="copy-path" title="点击复制文章链接"><i class="fa fa-clipboard" data-clipboard-text="http://yoursite.com/2019/08/13/集合/" aria-label="复制成功！"></i></span>
   </p>
   <p><span>许可协议:</span><i class="fa fa-creative-commons"></i> <a rel="license" href="https://creativecommons.org/licenses/by-nc-nd/4.0/" target="_blank" title="Attribution-NonCommercial-NoDerivatives 4.0 International (CC BY-NC-ND 4.0)">署名-非商业性使用-禁止演绎 4.0 国际</a> 转载请保留原文链接及作者。</p>  
 </div>
@@ -542,11 +572,9 @@
           
             <a href="/tags/笔记/" rel="tag"> 笔记</a>
           
-            <a href="/tags/Mybatis/" rel="tag"> Mybatis</a>
-          
             <a href="/tags/Java/" rel="tag"> Java</a>
           
-            <a href="/tags/框架/" rel="tag"> 框架</a>
+            <a href="/tags/集合/" rel="tag"> 集合</a>
           
         </div>
       
@@ -559,8 +587,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2019/08/13/tomcat端口被占用/" rel="next" title="tomcat端口被占用">
-                <i class="fa fa-chevron-left"></i> tomcat端口被占用
+              <a href="/2019/08/12/JavaScript中不同数据类型的运算/" rel="next" title="JavaScript中不同数据类型的运算">
+                <i class="fa fa-chevron-left"></i> JavaScript中不同数据类型的运算
               </a>
             
           </div>
@@ -569,8 +597,8 @@
 
           <div class="post-nav-prev post-nav-item">
             
-              <a href="/2019/09/11/SSM整合中MySQL8对应Druid版本问题以及dataSource的配置/" rel="prev" title="maven项目SSM整合中MySQL8对应Druid版本问题以及dataSource的配置">
-                maven项目SSM整合中MySQL8对应Druid版本问题以及dataSource的配置 <i class="fa fa-chevron-right"></i>
+              <a href="/2019/08/13/tomcat端口被占用/" rel="prev" title="tomcat端口被占用">
+                tomcat端口被占用 <i class="fa fa-chevron-right"></i>
               </a>
             
           </div>
@@ -679,7 +707,7 @@ var jiathis_config={
               
                 <a href="/archives/">
               
-                  <span class="site-state-item-count">10</span>
+                  <span class="site-state-item-count">13</span>
                   <span class="site-state-item-name">日志</span>
                 </a>
               </div>
@@ -701,7 +729,7 @@ var jiathis_config={
               
               <div class="site-state-item site-state-tags">
                 <a href="/tags/index.html">
-                  <span class="site-state-item-count">15</span>
+                  <span class="site-state-item-count">19</span>
                   <span class="site-state-item-name">标签</span>
                 </a>
               </div>
@@ -772,7 +800,7 @@ var jiathis_config={
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#自动生成代码步骤"><span class="nav-number">1.</span> <span class="nav-text">自动生成代码步骤</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-2"><a class="nav-link" href="#集合"><span class="nav-number">1.</span> <span class="nav-text">集合</span></a><ol class="nav-child"><li class="nav-item nav-level-3"><a class="nav-link" href="#Collection和Map"><span class="nav-number">1.1.</span> <span class="nav-text">Collection和Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Hashset"><span class="nav-number">1.2.</span> <span class="nav-text">Hashset</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Set"><span class="nav-number">1.3.</span> <span class="nav-text">Set</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#List以及遍历"><span class="nav-number">1.4.</span> <span class="nav-text">List以及遍历</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#Map"><span class="nav-number">1.5.</span> <span class="nav-text">Map</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#遍历中删除"><span class="nav-number">1.6.</span> <span class="nav-text">遍历中删除</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#通过枚举遍历hashTable"><span class="nav-number">1.7.</span> <span class="nav-text">通过枚举遍历hashTable</span></a></li></ol></li></ol></div>
             
 
           </div>
